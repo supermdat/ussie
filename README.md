@@ -6,6 +6,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/supermdat/ussie/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/supermdat/ussie/actions/workflows/R-CMD-check.yaml)
+[![test-coverage](https://github.com/supermdat/ussie/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/supermdat/ussie/actions/workflows/test-coverage.yaml)
 <!-- badges: end -->
 
 This is a demo package for the “Building Tidy Tools” workshop at
