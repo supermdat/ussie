@@ -1,0 +1,34 @@
+---
+title: "ussie"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ussie}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(dplyr)
+library(ussie)
+```
+
+Obtaining a structured dataset on the European soccer leave of your choice 
+(selections are: England, Germany, Holland, Italy, and Spain). This makes use 
+of data from the `engsoccerdata` package.
+```{r get_and_glimpse}
+
+italy <- uss_make_matches(data_engsoc = engsoccerdata::italy,
+                          country = "Italy"
+                          )
+
+dplyr::glimpse(italy)
+
+```
+
