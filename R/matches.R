@@ -1,3 +1,17 @@
+#' Make a standard league-play tibble
+#'
+#' Given a league-play data frame from {engsoccer}, returns a tibble with
+#' standardised column-names and types, e.g. `date` is a `Date`.
+#'
+#' @param data_engsoc  obtained from {engsoccerdata}.
+#' @param country `character` scalar, specifies the league.
+#'
+#' @return a tibble with columns `country`, `date`, `season`, `tier`, `home`,
+#'    `visitor`, `goals_home`, `goals_visitor`.
+#' @export
+#'
+#' @examples
+#' uss_make_matches(data_engsoc = engsoccerdata::spain, country = "Spain")
 uss_make_matches <- function(data_engsoc, country = "Italy") {
   result <-
     data_engsoc |>
