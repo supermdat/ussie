@@ -19,7 +19,7 @@ library(dplyr)
 library(ussie)
 ```
 
-Obtaining a structured dataset on the European soccer leave of your choice 
+Obtaining a structured dataset on the European soccer league of your choice 
 (selections are: England, Germany, Holland, Italy, and Spain). This makes use 
 of data from the `engsoccerdata` package.
 ```{r get_and_glimpse}
@@ -29,6 +29,16 @@ italy <- uss_make_matches(data_engsoc = engsoccerdata::italy,
                           )
 
 dplyr::glimpse(italy)
+
+```
+
+
+Obtaining a structured dataset on matches for the European soccer league of 
+your choice (selections are: England, Germany, Holland, Italy, and Spain). 
+This makes use of data from the `engsoccerdata` package.
+```{r get matches}
+
+uss_get_matches("italy")
 
 ```
 
