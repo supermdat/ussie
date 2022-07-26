@@ -16,9 +16,9 @@ test_that("uss_get_matches works", {
 
   # ## 2.3.1 tidy eval (pass the dots)
   # ## make sure the dots work as a filter
-  # expect_identical(
-  #   uss_get_matches("italy", season == 1934),
-  #   italy |> dplyr::filter(season == 1934)
-  # )
+  testthat::expect_identical(
+    object = uss_get_matches("italy", season == 1934),
+    expected = italy |> dplyr::filter(season == 1934)
+  )
 
 })

@@ -58,6 +58,8 @@ testthat::test_that(
       object = italy$tier,
       class = "factor"
     )
+
+    testthat::expect_snapshot(dplyr::glimpse(italy))
   }
 )
 

@@ -42,3 +42,14 @@ uss_get_matches("italy")
 
 ```
 
+
+Add filtering.
+```{r filtering}
+
+uss_get_matches("italy", season == 1929)
+
+uss_get_matches("italy") |>
+  dplyr::filter(season == 1929)
+
+```
+
