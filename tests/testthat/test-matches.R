@@ -1,65 +1,21 @@
-testthat::test_that(
-  desc = "uss_make_matches returns a tibble",
-  code = {
-    # use the function
-    italy <- uss_make_matches(data_engsoc = engsoccerdata::italy,
-                              country = "Italy"
-                              )
+test_that("uss_make_matches works", {
+  
+  local_warn_partial_match()
+  
+  # we have tested the behaviors of the validators elsewhere,
+  # here, we're just making sure the *right* error got thrown
+  expect_error(uss_make_matches(3, "foo"), class = "ussie_error_data")
+  expect_error(uss_make_matches(mtcars, "foo"), class = "ussie_error_cols")
+  
+  italy <- uss_make_matches(engsoccerdata::italy, "Italy")
+  
+  expect_true(tibble::is_tibble(italy))
+  expect_named(italy, cols_matches())
+  expect_identical(unique(italy$country), "Italy")
 
-    testthat::expect_true(object = tibble::is_tibble(italy))
-  }
-)
-
-
-testthat::test_that(
-  desc = "uss_make_matches returns proper column names",
-  code = {
-    # use the function
-    italy <- uss_make_matches(data_engsoc = engsoccerdata::italy,
-                              country = "Italy"
-                              )
-
-    testthat::expect_named(
-      object = italy,
-      expected = c("country", "tier", "season", "date",
-                   "home", "visitor", "goals_home",
-                   "goals_visitor"
-                   )
-    )
-  }
-)
-
-
-testthat::test_that(
-  desc = "uss_make_matches returns proper country column",
-  code = {
-    # use the function
-    italy <- uss_make_matches(data_engsoc = engsoccerdata::italy,
-                              country = "Italy"
-                              )
-
-    testthat::expect_identical(
-      object = base::unique(italy$country),
-      expected = "Italy"
-    )
-  }
-)
-
-
-testthat::test_that(
-  desc = "uss_make_matches returns the tier column as a factor",
-  code = {
-    # use the function
-    italy <- uss_make_matches(data_engsoc = engsoccerdata::italy,
-                              country = "Italy"
-                              )
-
-    testthat::expect_s3_class(
-      object = italy$tier,
-      class = "factor"
-    )
-
-    testthat::expect_snapshot(dplyr::glimpse(italy))
-  }
-)
-
+  expect_s3_class(italy$tier, "factor")
+  
+  # not as robust as a full "identical" comparison
+  #  - still useful for column names, types, values for first few rows
+  expect_snapshot(dplyr::glimpse(italy))
+})

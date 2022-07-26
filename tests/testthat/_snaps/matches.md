@@ -1,4 +1,4 @@
-# uss_make_matches returns the tier column as a factor
+# uss_make_matches works
 
     Code
       dplyr::glimpse(italy)

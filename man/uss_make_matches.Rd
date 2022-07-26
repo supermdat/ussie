@@ -4,21 +4,23 @@
 \alias{uss_make_matches}
 \title{Make a standard league-play tibble}
 \usage{
-uss_make_matches(data_engsoc, country = "Italy")
+uss_make_matches(data_engsoc, country)
 }
 \arguments{
-\item{data_engsoc}{obtained from {engsoccerdata}.}
+\item{data_engsoc}{\code{data.frame} obtained from {engsoccerdata}.}
 
-\item{country}{\code{character} scalar, specifies the league.}
+\item{country}{\code{character} scalar, specifies the league.
+\code{uss_countries()} returns choices available from {engsoccerdata}}
 }
 \value{
-a tibble with columns \code{country}, \code{date}, \code{season}, \code{tier}, \code{home},
-\code{visitor}, \code{goals_home}, \code{goals_visitor}.
+\link[tibble:tibble-package]{tibble} with columns \code{country}, \code{date},
+\code{season}, \code{tier}, \code{home}, \code{visitor}, \code{goals_home}, \code{goals_visitor}.
 }
 \description{
 Given a league-play data frame from {engsoccer}, returns a tibble with
-standardised column-names and types, e.g. \code{date} is a \code{Date}.
+standardised colomn-names and types, e.g. \code{date} is a \code{Date}.
 }
 \examples{
-uss_make_matches(data_engsoc = engsoccerdata::spain, country = "Spain")
+uss_make_matches(engsoccerdata::italy, "Italy")
 }
+\keyword{internal}
