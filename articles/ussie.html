@@ -88,7 +88,7 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/supermdat/ussie" class="external-link">ussie</a></span><span class="op">)</span></span></code></pre></div>
-<p>Obtaining a structured dataset on the European soccer leave of your choice (selections are: England, Germany, Holland, Italy, and Spain). This makes use of data from the <code>engsoccerdata</code> package.</p>
+<p>Obtaining a structured dataset on the European soccer league of your choice (selections are: England, Germany, Holland, Italy, and Spain). This makes use of data from the <code>engsoccerdata</code> package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">italy</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/uss_make_matches.html">uss_make_matches</a></span><span class="op">(</span>data_engsoc <span class="op">=</span> <span class="fu">engsoccerdata</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/engsoccerdata/man/italy.html" class="external-link">italy</a></span>,</span>
@@ -106,6 +106,26 @@
 <span><span class="co">#&gt; $ visitor       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "US Livorno", "Unione Triestina", "Bologna FC", "US Ales…</span></span>
 <span><span class="co">#&gt; $ goals_home    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 6, 3, 2, 0, 4, 0, 3, 1, 1, 1, 2, 4, 2, 2, 3, 2, 2, 2, 0,…</span></span>
 <span><span class="co">#&gt; $ goals_visitor <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 1, 1, 1, 1, 1, 2, 0, 2, 1, 1, 1, 0, 2, 1, 1, 0, 1, 1, 1,…</span></span></code></pre></div>
+<p>Obtaining a structured dataset on matches for the European soccer league of your choice (selections are: England, Germany, Holland, Italy, and Spain). This makes use of data from the <code>engsoccerdata</code> package.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="fu"><a href="../reference/uss_get_matches.html">uss_get_matches</a></span><span class="op">(</span><span class="st">"italy"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 25,404 × 8</span></span></span>
+<span><span class="co">#&gt;    country tier  season date       home            visitor       goals…¹ goals…²</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 Lazio Roma      US Livorno          6       1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 Torino FC       Unione Tries…       3       1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 Sampierdarenese Bologna FC          2       1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 SSC Napoli      US Alessandr…       0       1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 ACF Fiorentina  AS Roma             4       1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 Brescia Calcio  Juventus            0       2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 Inter           US Palermo          3       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-09-30 Pro Vercelli    AC Milan            1       2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-10-07 AC Milan        ACF Fiorenti…       1       1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Italy   1       <span style="text-decoration: underline;">1</span>934 1934-10-07 US Livorno      Inter               1       1</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 25,394 more rows, and abbreviated variable names ¹​goals_home,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ²​goals_visitor</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
   </main>
 </div>
 
